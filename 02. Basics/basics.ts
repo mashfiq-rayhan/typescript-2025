@@ -138,11 +138,11 @@
 
 // generateError();
 
-// type User = {
-//   name: string;
-//   age: number;
-//   role?: 'admin' | 'guest';
-// };
+type User = {
+  name: string;
+  age: number;
+  role?: 'admin' | 'guest';
+};
 
 let input = '';
 const didInput = input ?? false;

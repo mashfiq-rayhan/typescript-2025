@@ -6,7 +6,7 @@ let someObj: Record<string, number | boolean>;
 
 let store: DataStore = {};
 
-store.id = 5;
+store.id = 6;
 store.isOpen = false;
 // store.name = 'Dokan';
 
