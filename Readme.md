@@ -1,41 +1,66 @@
+
 <h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
   <img src="https://camo.githubusercontent.com/bb11234e86e6ef0b7bd2c91e1ae02eb637128756f87b13d024e902f6800bca98/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f547970655363726970742d3331373843363f7374796c653d666c6174266c6f676f3d74797065736372697074266c6f676f436f6c6f723d7768697465" alt="TS Logo" width="200">
 </h1>
 
+### 🔹 TypeScript Types Overview
+
+![TypeScript Types](./02.%20Basics/TypeScript%20Types.png)
+
+### 🔹 TypeScript Interfaces Guide
+
+![TypeScript Interfaces](./02.%20Basics/TypeScript%20Interfaces.png)
+
+### 🔹 TypeScript Classes Structure
+
+![TypeScript Classes](./02.%20Basics/TypeScript%20Classes.png)
+
+### 🔹 TypeScript Control Flow Analysis
+
+![TypeScript Control Flow Analysis](./02.%20Basics/TypeScript%20Control%20Flow%20Analysis.png)
+
+<h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <img src="https://camo.githubusercontent.com/bb11234e86e6ef0b7bd2c91e1ae02eb637128756f87b13d024e902f6800bca98/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f547970655363726970742d3331373843363f7374796c653d666c6174266c6f676f3d74797065736372697074266c6f676f436f6c6f723d7768697465" alt="TS Logo" width="200">
+</h1>
 
 ## 🔹 Basic Types
+
 ```ts
 let id: number = 5; // number type variable
-let company: string = "OpenAI"; // string type variable
+let company: string = 'OpenAI'; // string type variable
 let isPublished: boolean = true; // boolean type variable
-let x: any = "Hello"; // any type (can be any value)
+let x: any = 'Hello'; // any type (can be any value)
 
 let ids: number[] = [1, 2, 3]; // array of numbers
-let arr: any[] = [1, true, "hello"]; // array of any type values
+let arr: any[] = [1, true, 'hello']; // array of any type values
 
 let pid: string | number = 22; // union type (string or number)
 ```
 
 ## 🔹 Tuples & Arrays of Tuples
+
 ```ts
-let person: [number, string, boolean] = [1, "Mashfiq", true]; // tuple with fixed types and length
-let employee: [number, string][] = [ // array of tuples
-  [1, "Mash"],
-  [2, "Rayhan"],
+let person: [number, string, boolean] = [1, 'Mashfiq', true]; // tuple with fixed types and length
+let employee: [number, string][] = [
+  // array of tuples
+  [1, 'Mash'],
+  [2, 'Rayhan']
 ];
 ```
 
 ## 🔹 Enums
+
 ```ts
 enum Direction {
   Up = 1, // enum member with value 1
-  Down,   // auto-increments to 2
-  Left,   // 3
-  Right,  // 4
+  Down, // auto-increments to 2
+  Left, // 3
+  Right // 4
 }
 ```
 
 ## 🔹 Objects and Type Aliases
+
 ```ts
 type User = {
   id: number; // property with number type
@@ -44,10 +69,12 @@ type User = {
 
 const user: User = {
   id: 1, // matching id type
-  name: "Mashfiq", // matching name type
+  name: 'Mashfiq' // matching name type
 };
 ```
+
 ## 🔹 Type Assertion
+
 ```ts
 let cid: any = 1; // any type
 let customerId = cid as number; // type assertion (preferred)
@@ -55,17 +82,21 @@ let customerId2 = <number>cid; // type assertion (JSX-incompatible)
 ```
 
 ## 🔹 Functions
+
 ```ts
-function add(x: number, y: number): number { // function with number parameters and return type
+function add(x: number, y: number): number {
+  // function with number parameters and return type
   return x + y;
 }
 
-function log(message: string | number): void { // void means no return value
+function log(message: string | number): void {
+  // void means no return value
   console.log(message);
 }
 ```
 
 ## 🔹 Interfaces
+
 ```ts
 interface UserInterface {
   readonly id: number; // read-only property
@@ -75,7 +106,7 @@ interface UserInterface {
 
 const user1: UserInterface = {
   id: 1,
-  name: "Ovi",
+  name: 'Ovi'
 };
 
 interface MathFunc {
@@ -86,6 +117,7 @@ const add: MathFunc = (a, b) => a + b; // function assigned to interface
 ```
 
 ## 🔹 Classes
+
 ```ts
 class Person {
   private id: number; // accessible only within class
@@ -96,15 +128,17 @@ class Person {
     this.name = name;
   }
 
-  register(): string { // method with string return
+  register(): string {
+    // method with string return
     return `${this.name} is registered`;
   }
 }
 
-const mash = new Person(1, "Mashfiq"); // create class instance
+const mash = new Person(1, 'Mashfiq'); // create class instance
 ```
 
 ## 🔹 Class Inheritance
+
 ```ts
 class Employee extends Person {
   position: string; // new property
@@ -117,6 +151,7 @@ class Employee extends Person {
 ```
 
 ## 🔹 Class Implements Interface
+
 ```ts
 interface PersonInterface {
   id: number;
@@ -124,7 +159,8 @@ interface PersonInterface {
   register(): string; // method signature
 }
 
-class Person2 implements PersonInterface { // class implements interface
+class Person2 implements PersonInterface {
+  // class implements interface
   constructor(public id: number, public name: string) {}
 
   register() {
@@ -134,16 +170,19 @@ class Person2 implements PersonInterface { // class implements interface
 ```
 
 ## 🔹 Generics
+
 ```ts
-function getArray<T>(items: T[]): T[] { // generic function
+function getArray<T>(items: T[]): T[] {
+  // generic function
   return [...items];
 }
 
 const numArray = getArray<number>([1, 2, 3]); // number array
-const strArray = getArray<string>(["a", "b", "c"]); // string array
+const strArray = getArray<string>(['a', 'b', 'c']); // string array
 ```
 
 ## 🔹 Utility Types
+
 ```ts
 type User = {
   id: number;
@@ -154,14 +193,17 @@ type User = {
 type RequiredUser = Required<User>; // all properties required
 type PartialUser = Partial<User>; // all properties optional
 type ReadonlyUser = Readonly<User>; // all properties readonly
-type PickUser = Pick<User, "id" | "name">; // only pick selected keys
-type OmitUser = Omit<User, "email">; // omit selected keys
+type PickUser = Pick<User, 'id' | 'name'>; // only pick selected keys
+type OmitUser = Omit<User, 'email'>; // omit selected keys
 ```
 
 ## 🔹 Type Narrowing
+
 ```ts
-function printId(id: number | string) { // union type
-  if (typeof id === "string") { // type narrowing using typeof
+function printId(id: number | string) {
+  // union type
+  if (typeof id === 'string') {
+    // type narrowing using typeof
     console.log(id.toUpperCase());
   } else {
     console.log(id);
@@ -170,13 +212,16 @@ function printId(id: number | string) { // union type
 ```
 
 ## 🔹 Type Guards
+
 ```ts
-function isString(value: any): value is string { // custom type guard
-  return typeof value === "string";
+function isString(value: any): value is string {
+  // custom type guard
+  return typeof value === 'string';
 }
 ```
 
 ## 🔹 Advanced Types
+
 ```ts
 type Point = { x: number; y: number }; // base type
 type ThreeDPoint = Point & { z: number }; // intersection type
@@ -184,11 +229,13 @@ type StringOrNumber = string | number; // union type
 ```
 
 ## 🔹 Type Inference
+
 ```ts
-let msg = "Hello"; // inferred as string
+let msg = 'Hello'; // inferred as string
 ```
 
 ## 🔹 keyof / typeof / infer
+
 ```ts
 type Person = { name: string; age: number };
 type PersonKeys = keyof Person; // 'name' | 'age'
@@ -200,9 +247,11 @@ type ReturnTypeExample<T> = T extends (...args: any[]) => infer R ? R : never; /
 ```
 
 ## 🔹 Modules
+
 ```ts
 // math.ts
-export function add(a: number, b: number): number { // export function
+export function add(a: number, b: number): number {
+  // export function
   return a + b;
 }
 
@@ -211,6 +260,7 @@ import { add } from './math'; // import function
 ```
 
 ## 🔹 TSConfig Template
+
 ```ts
 {
   "compilerOptions": {
@@ -225,12 +275,14 @@ import { add } from './math'; // import function
 ```
 
 ## 🔹 Non-null Assertion
+
 ```ts
-const el = document.getElementById("root")!; // non-null assertion
+const el = document.getElementById('root')!; // non-null assertion
 ```
 
 ## 🔹 DOM Types
+
 ```ts
-const input = document.querySelector("input") as HTMLInputElement; // cast to HTMLInputElement
-input.value = "Mash"; // set input value
+const input = document.querySelector('input') as HTMLInputElement; // cast to HTMLInputElement
+input.value = 'Mash'; // set input value
 ```
